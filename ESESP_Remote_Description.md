@@ -1,77 +1,9 @@
-Hardware Components
+Two ESP microcontroller boards (ESP32 or ESP8266) are required for this project, where one board operates as the sender (command node) and the other operates as the receiver (execution node). Each ESP board must be powered using a stable 5V power source, such as a USB adapter or a power bank, to ensure reliable operation.
 
-ESP32 or ESP8266 (2 units)
+The receiver ESP is connected to an output device such as an LED, relay module, motor, or buzzer in order to execute the received commands. When an LED is used for testing purposes, a current-limiting resistor in the range of 220Ω to 330Ω is required to protect the device. A breadboard and jumper wires are used for prototyping and making temporary connections between components.
 
-One board acts as the Sender (Command Node)
+Both ESP devices require access to a Wi-Fi network with an active Internet connection, allowing them to communicate over long distances regardless of physical location. An MQTT broker with public Internet access is required to manage message exchange between the sender and receiver nodes. This broker can be a public MQTT service or a private broker hosted on a virtual private server (VPS) with a static public IP address for improved reliability and control.
 
-One board acts as the Receiver (Execution Node)
+The project is developed and programmed using the Arduino IDE, with the appropriate ESP board support packages installed. An MQTT client library, such as the PubSubClient library, is required to enable MQTT communication on the ESP devices. A serial monitor is used during development for debugging, monitoring message transmission, and verifying system behavior.
 
-Stable Power Supply for ESP Boards
-
-USB power (5V) or external regulated power source
-
-Power bank or adapter for long-term operation
-
-Actuator / Load (for Receiver Node)
-
-LED (for testing)
-
-Relay module (for controlling real devices)
-
-Motor, buzzer, or any digital output device
-
-Current-Limiting Resistor (220Ω – 330Ω)
-
-Required when using an LED
-
-Breadboard and Jumper Wires
-
-For rapid prototyping and testing
-
-Network and Infrastructure
-
-Wi-Fi Internet Connection
-
-Required for both ESP devices
-
-Devices can be located in different cities or countries
-
-MQTT Broker with Public Access
-
-Public broker (e.g., HiveMQ, Mosquitto test server)
-
-OR private broker hosted on a VPS with a static public IP
-
-Static Public IP (Optional but Recommended)
-
-Provided by a VPS for running a private MQTT broker
-
-Improves reliability and security
-
-Software Tools
-
-Arduino IDE
-
-Used for programming ESP boards
-
-ESP Board Support Package
-
-ESP32 or ESP8266 core installed in Arduino IDE
-
-MQTT Client Library
-
-PubSubClient library
-
-Serial Monitor
-
-For debugging and monitoring communication
-
-Optional (Advanced / Security)
-
-TLS Certificates
-
-For encrypted MQTT communication (MQTT over SSL/TLS)
-
-Authentication Credentials
-
-Username and password for broker access
+For enhanced security in real-world deployments, optional components such as authentication credentials and TLS certificates may be used to enable encrypted MQTT communication and prevent unauthorized access.
